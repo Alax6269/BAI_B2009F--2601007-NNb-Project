@@ -1,0 +1,12 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Inference only: pinned CPU-only PyTorch, no matplotlib (test.py skips the figures without it)
+COPY requirements-test.txt .
+RUN pip install --no-cache-dir -r requirements-test.txt
+
+# Code only. data/, models/ and results/ are mounted when the container runs
+COPY model.py test.py predict.py /app/
+
+CMD ["python", "test.py", "--model", "models/baseline.pt"]

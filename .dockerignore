@@ -1,0 +1,18 @@
+# Data, models and results are MOUNTED when the container runs, never copied into the image
+data/
+demo_data/
+models/
+results/
+figures/
+Image For Model To Predict/
+
+# Not needed inside the image
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.vscode/
+*.zip
+*.tar
+*.md
+READ ME.txt
